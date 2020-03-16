@@ -1,5 +1,5 @@
 # Types
-const StateHandle = Ref{Nothing}
+const StateHandle = Ptr{Cvoid}
 
 # enums
 """UMP Error enums"""
