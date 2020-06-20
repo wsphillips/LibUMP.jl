@@ -30,7 +30,7 @@ end
 
 const DEF_STORAGE_ID       =     0 # default position storage
 const DEF_TIMEOUT          =    20 # default message timeout in millisecods
-const DEF_GROUP            =     0 # default manipulator group, group 0 is called 'A' on TCU UI
+const DEF_GROUP            = Int32(0) # default manipulator group, group 0 is called 'A' on TCU UI
 const MAX_TIMEOUT          =  1000 # maximum message timeout in milliseconds
 const MAX_LOG_LINE_LENGTH  =   256 # maximum log message length
 const FEATURE_VIRTUALX     =     0 # id number for virtual X axis feature
