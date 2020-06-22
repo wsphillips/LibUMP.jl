@@ -111,6 +111,11 @@ function goto_position(hndl::StateHandle, x::Cint, y::Cint, z::Cint, w::Cint, sp
     ccall((:ump_goto_position, :libump), Cint, (StateHandle, Cint, Cint, Cint, Cint, Cint), hndl, x, y, z, w, speed)
 end
 
+# Alternate dispatch for 3-axis manipulators
+function goto_position(hndl::StateHandle, x::Cint, y::Cint, z::Cint, speed::Cint)
+    ccall((:ump_goto_position, :libump), Cint, (StateHandle, Cint, Cint, Cint, Ptr{Cvoid}, Cint), hndl, x, y, z, C_NULL, speed)
+end
+
 function goto_virtual_axis_position(hndl::StateHandle, x_position::Cint, speed::Cint)
     ccall((:ump_goto_virtual_axis_position, :libump), Cint, (StateHandle, Cint, Cint), hndl, x_position, speed)
 end
