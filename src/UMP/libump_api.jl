@@ -55,8 +55,8 @@ function is_busy(hndl::StateHandle)
     ccall((:ump_is_busy, :libump), Cint, (StateHandle,), hndl)
 end
 
-function is_busy_status(status::Status)
-    ccall((:ump_is_busy_status, :libump), Cint, (Status,), status)
+function is_busy_status(status::Cint)
+    ccall((:ump_is_busy_status, :libump), Cint, (Cint,), status)
 end
 
 function get_drive_status(hndl::StateHandle)
@@ -109,11 +109,6 @@ end
 
 function goto_position(hndl::StateHandle, x::Cint, y::Cint, z::Cint, w::Cint, speed::Cint)
     ccall((:ump_goto_position, :libump), Cint, (StateHandle, Cint, Cint, Cint, Cint, Cint), hndl, x, y, z, w, speed)
-end
-
-# Alternate dispatch for 3-axis manipulators
-function goto_position(hndl::StateHandle, x::Cint, y::Cint, z::Cint, speed::Cint)
-    ccall((:ump_goto_position, :libump), Cint, (StateHandle, Cint, Cint, Cint, Ptr{Cvoid}, Cint), hndl, x, y, z, C_NULL, speed)
 end
 
 function goto_virtual_axis_position(hndl::StateHandle, x_position::Cint, speed::Cint)
