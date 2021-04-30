@@ -6,7 +6,7 @@ using .UMP
 export UMP
 
 export Position
-export get_position, isbusy
+export get_position, isbusy, moveto
 export move_X_by, move_Y_by, move_Z_by, move_3D_by
 
 const BROADCAST_IP = "169.254.255.255"
